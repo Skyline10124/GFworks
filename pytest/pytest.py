@@ -17,3 +17,10 @@ if adb.connect(ip='127.0.0.1',port=16448):
     if screenshot_helper.capture_screenshot():
         # 保存原始截图
         screenshot_helper.save_screenshot()
+
+        # 使用OpenCV处理截图
+        processed_path = screenshot_helper.process_with_opencv()
+        
+        # 显示处理后的图像
+        if processed_path:
+            screenshot_helper.display_processed_image()
