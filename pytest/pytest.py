@@ -1,22 +1,19 @@
 import cv2
 import numpy as np
-from adb_helper import ADBHelper
+from adb_helper import ADBHelper, ADBScreenshotHelper
 
 print("hello world")
 
 adb = ADBHelper()
-def test_adb_connection():
-    # 测试ADB连接
-    assert adb.connect() is True
-    print("已连接到设备", adb.execute_command("getprop ro.product.model"))
+devices = adb.list_devices()
 
-def test_adb_command_execution():
-    # 测试ADB命令执行
-    assert adb.connect() is True
-    result = adb.execute_command("echo 'Hello ADB'")
-    assert "Hello ADB" in result
+if adb.connect(ip='127.0.0.1',port=16448):
+    print("成功连接到设备")
 
-if __name__ == "__main__":
-    test_adb_connection()
-    test_adb_command_execution()
-    print("所有测试通过")
+    # 创建截图助手
+    screenshot_helper = ADBScreenshotHelper(adb)
+
+    # 截图并保存
+    if screenshot_helper.capture_screenshot():
+        # 保存原始截图
+        screenshot_helper.save_screenshot()
