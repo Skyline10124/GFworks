@@ -1,0 +1,69 @@
+{
+    "OpenCV Import": {
+        "prefix": "imcv",
+        "body": [
+            "import cv2",
+            "import numpy as np",
+            "from matplotlib import pyplot as plt"
+        ],
+        "description": "Import OpenCV and related libraries"
+    },
+    "OpenCV Image Show": {
+        "prefix": "cvshow",
+        "body": [
+            "cv2.imshow('${1:Image}', ${2:image})",
+            "cv2.waitKey(0)",
+            "cv2.destroyAllWindows()"
+        ],
+        "description": "Show image with OpenCV"
+    },
+    "OpenCV Read Image": {
+        "prefix": "cvread",
+        "body": [
+            "${1:image} = cv2.imread('${2:path/to/image.jpg}')"
+        ],
+        "description": "Read an image using OpenCV"
+    },
+    "OpenCV Convert Color": {
+        "prefix": "cvconvert",
+        "body": [
+            "${1:converted_image} = cv2.cvtColor(${2:image}, cv2.COLOR_${3:COLOR_SPACE})"
+        ],
+        "description": "Convert image color space using OpenCV"
+    },
+    "OpenCV Resize Image": {
+        "prefix": "cvresize",
+        "body": [
+            "${1:resized_image} = cv2.resize(${2:image}, (${3:width}, ${4:height}))"
+        ],
+        "description": "Resize an image using OpenCV"
+    },
+    "OpenCV Save Image": {
+        "prefix": "cvsave",
+        "body": [
+            "cv2.imwrite('${1:path/to/save/image.jpg}', ${2:image})"
+        ],
+        "description": "Save an image using OpenCV"
+    },
+    "OpenCV Draw Circle": {
+        "prefix": "cvcircle",
+        "body": [
+            "cv2.circle(${1:image}, (${2:x}, ${3:y}), ${4:radius}, (${5:b, g, r}), ${6:thickness})"
+        ],
+        "description": "Draw a circle on an image using OpenCV"
+    },
+    "OpenCV Draw Rectangle": {
+        "prefix": "cvrectangle",
+        "body": [
+            "cv2.rectangle(${1:image}, (${2:x1}, ${3:y1}), (${4:x2}, ${5:y2}), (${6:b, g, r}), ${7:thickness})"
+        ],
+        "description": "Draw a rectangle on an image using OpenCV"
+    },
+    "OpenCV Draw Line": {
+        "prefix": "cvline",
+        "body": [
+            "cv2.line(${1:image}, (${2:x1}, ${3:y1}), (${4:x2}, ${5:y2}), (${6:b, g, r}), ${7:thickness})"
+        ],
+        "description": "Draw a line on an image using OpenCV"
+    }
+}
